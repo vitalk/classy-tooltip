@@ -1,0 +1,172 @@
+// Tooltip.
+//
+// A pure CSS tooltip. It does not rely on JavaScript and rather uses
+// `area-label` attribute, pseudo elements and `content` property
+// to create the tooltip body and bubble. Additional classes uses
+// to specify a direction:
+//
+// .tooltip-n - North direction.
+// .tooltip-s - South direction.
+// .tooltip-w - West direction.
+// .tooltip-e - East direction.
+//
+// Example:
+//
+// <a class="has-tooltip tooltip-s" area-label="Hello world!">Hover to action</a>
+//
+// Styleguide 7.1.
+
+
+@classy-tooltip-namespace: ~"@{classy-namespace}tooltip";
+
+#classy-tooltip-vars {
+    @b: rgba(0,0,0,.85);
+    @bow: 4px;
+    @c: #000;
+    @p: 4px 6px;
+    @z: 500;
+    @f: ~"normal normal 1em/1.4 sans-serif";
+}
+
+
+// 1. Create a new position context, so tooltip body and bubble can be 
+//    properly positioned.
+// 2. Hide tooltip and prevent cursor interaction.
+// 3. Use absolute position to properly positioned tooltip.
+// 4. Prevent text decoration for tooltip which applied to link and other
+//    clickable elements.
+// 5. Use semantic `area-label` attribute as tooltip content.
+// 6. Explicitly put tooltip bubble above tooltip body, so when body has
+//    a box shadow it shows over it.
+// 7. Allow long content in tooltip.
+// 8. Show tooltip for hover, active and focused state.
+.has-@{classy-tooltip-namespace} {
+    #classy-tooltip-vars;
+
+    position: relative; // 1
+
+
+    &:after,
+    &:before {
+        display: none; // 2
+        opacity: 0; // 2
+        cursor: not-allowed; // 2
+        pointer-events: none; // 2
+        position: absolute; // 3
+    }
+
+    &:after {
+        position: absolute; // 3
+        padding: @p;
+        z-index: @z; // 6
+        content: attr(aria-label); // 5
+
+        text-decoration: none; // 4
+        word-wrap: break-word; // 7
+        white-space: pre; // 7
+
+        font: @f;
+        background: @b;
+        color: @c;
+    }
+
+    &:before {
+        border: @bow solid transparent;
+        content: "";
+        z-index: (@z + 1); // 6
+    }
+
+
+    &:hover,
+    &:focus,
+    &:active { // 8
+        &:after,
+        &:before {
+            display: inline-block;
+            opacity: 1;
+        }
+    }
+}
+
+
+// Tooltip above the object.
+.@{classy-tooltip-namespace}-n {
+    #classy-tooltip-vars;
+
+    &:after {
+        right: 50%;
+        bottom: 100%;
+        margin-bottom: @bow;
+        transform: translateX(50%);
+    }
+
+    &:before {
+        top: -@bow;
+        right: 50%;
+        bottom: auto;
+        margin-right: -@bow;
+        border-top-color: @b;
+    }
+}
+
+
+// Tooltip below the object.
+.@{classy-tooltip-namespace}-s {
+    #classy-tooltip-vars;
+
+    &:after {
+        top: 100%;
+        right: 50%;
+        margin-top: @bow;
+        transform: translateX(50%);
+    }
+
+    &:before {
+        top: auto;
+        bottom: -@bow;
+        right: 50%;
+        margin-right: -@bow;
+        border-bottom-color: @b;
+    }
+}
+
+
+// Tooltip to the left of the object.
+.@{classy-tooltip-namespace}-w {
+    #classy-tooltip-vars;
+
+    &:after {
+        right: 100%;
+        bottom: 50%;
+        margin-right: @bow;
+        transform: translateY(50%);
+    }
+
+    &:before {
+        top: 50%;
+        bottom: 50%;
+        left: -@bow;
+        margin-top: -@bow;
+        border-left-color: @b;
+    }
+}
+
+
+// Tooltip to the right of the object.
+.@{classy-tooltip-namespace}-e {
+    #classy-tooltip-vars;
+
+    &:after {
+        bottom: 50%;
+        left: 100%;
+        margin-left: @bow;
+        transform: translateY(50%);
+    }
+
+    &:before {
+        top: 50%;
+        right: -@bow;
+        margin-top: -@bow;
+        border-right-color: @b;
+    }
+}

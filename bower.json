@@ -1,0 +1,26 @@
+{
+  "name": "classy-tooltip",
+  "version": "0.1.0",
+  "authors": [
+    "Vital Kudzelka <vital.kudzelka@gmail.com>"
+  ],
+  "description": "A pure CSS tooltip",
+  "main": "objects.tooltip.less",
+  "keywords": [
+    "css",
+    "oocss",
+    "tooltip"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/vitalk/classy-tooltip",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "classy-defaults": "~0.2.2"
+  }
+}
