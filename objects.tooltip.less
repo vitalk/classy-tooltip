@@ -100,9 +100,9 @@
     }
 
     &:before {
-        top: -@bow;
         right: 50%;
-        bottom: auto;
+        bottom: 100%;
+        margin-bottom: -@bow;
         margin-right: -@bow;
         border-top-color: @b;
     }
@@ -120,9 +120,9 @@
     }
 
     &:before {
-        top: auto;
-        bottom: -@bow;
+        top: 100%;
         right: 50%;
+        margin-top: -@bow;
         margin-right: -@bow;
         border-bottom-color: @b;
     }
