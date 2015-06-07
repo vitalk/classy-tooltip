@@ -6,7 +6,11 @@
 // to specify a direction:
 //
 // .tooltip-n - North direction.
+// .tooltip-ne - North-east direction.
+// .tooltip-nw - North-west direction.
 // .tooltip-s - South direction.
+// .tooltip-se - South-east direction.
+// .tooltip-sw - South-west direction.
 // .tooltip-w - West direction.
 // .tooltip-e - East direction.
 //
@@ -90,7 +94,9 @@
 
 
 // Tooltip above the object.
-.@{classy-tooltip-namespace}-n {
+.@{classy-tooltip-namespace}-n,
+.@{classy-tooltip-namespace}-ne,
+.@{classy-tooltip-namespace}-nw {
     #classy-tooltip-vars;
 
     &:after {
@@ -100,9 +106,9 @@
     }
 
     &:before {
-        top: -@bow;
         right: 50%;
-        bottom: auto;
+        bottom: 100%;
+        margin-bottom: -@bow;
         margin-right: -@bow;
         border-top-color: @b;
     }
@@ -110,7 +116,9 @@
 
 
 // Tooltip below the object.
-.@{classy-tooltip-namespace}-s {
+.@{classy-tooltip-namespace}-s,
+.@{classy-tooltip-namespace}-se,
+.@{classy-tooltip-namespace}-sw {
     #classy-tooltip-vars;
 
     &:after {
@@ -120,11 +128,33 @@
     }
 
     &:before {
-        top: auto;
-        bottom: -@bow;
+        top: 100%;
         right: 50%;
+        margin-top: -@bow;
         margin-right: -@bow;
         border-bottom-color: @b;
+    }
+}
+
+
+.@{classy-tooltip-namespace}-ne,
+.@{classy-tooltip-namespace}-se {
+    #classy-tooltip-vars;
+
+    &:after {
+      left: 50%;
+      right: auto;
+      margin-left: -(3 * @bow);
+    }
+}
+
+
+.@{classy-tooltip-namespace}-nw,
+.@{classy-tooltip-namespace}-sw {
+    #classy-tooltip-vars;
+
+    &:after {
+      margin-right: -(3 * @bow);
     }
 }
 
