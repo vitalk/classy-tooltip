@@ -18,7 +18,7 @@ Usage
 -----
 
 ```html
-<span class="has-tooltip tooltip-s"
+<span class="has-tooltip tooltip--s"
       aria-label="Douglas Adams, the only person who knew what this question
                   really was about is now dead, unfortunately">
   What is the meaning of life, the universe and everything?

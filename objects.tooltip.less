@@ -5,18 +5,18 @@
 // to create the tooltip body and bubble. Additional classes uses
 // to specify a direction:
 //
-// .tooltip-n - North direction.
-// .tooltip-ne - North-east direction.
-// .tooltip-nw - North-west direction.
-// .tooltip-s - South direction.
-// .tooltip-se - South-east direction.
-// .tooltip-sw - South-west direction.
-// .tooltip-w - West direction.
-// .tooltip-e - East direction.
+// .tooltip--n - North direction.
+// .tooltip--ne - North-east direction.
+// .tooltip--nw - North-west direction.
+// .tooltip--s - South direction.
+// .tooltip--se - South-east direction.
+// .tooltip--sw - South-west direction.
+// .tooltip--w - West direction.
+// .tooltip--e - East direction.
 //
 // Example:
 //
-// <a class="has-tooltip tooltip-s" area-label="Hello world!">Hover to action</a>
+// <a class="has-tooltip tooltip--s" area-label="Hello world!">Hover to action</a>
 //
 // Styleguide 7.1.
 
@@ -94,9 +94,9 @@
 
 
 // Tooltip above the object.
-.@{classy-tooltip-namespace}-n,
-.@{classy-tooltip-namespace}-ne,
-.@{classy-tooltip-namespace}-nw {
+.@{classy-tooltip-namespace}--n,
+.@{classy-tooltip-namespace}--ne,
+.@{classy-tooltip-namespace}--nw {
     #classy-tooltip-vars;
 
     &:after {
@@ -116,9 +116,9 @@
 
 
 // Tooltip below the object.
-.@{classy-tooltip-namespace}-s,
-.@{classy-tooltip-namespace}-se,
-.@{classy-tooltip-namespace}-sw {
+.@{classy-tooltip-namespace}--s,
+.@{classy-tooltip-namespace}--se,
+.@{classy-tooltip-namespace}--sw {
     #classy-tooltip-vars;
 
     &:after {
@@ -137,8 +137,8 @@
 }
 
 
-.@{classy-tooltip-namespace}-ne,
-.@{classy-tooltip-namespace}-se {
+.@{classy-tooltip-namespace}--ne,
+.@{classy-tooltip-namespace}--se {
     #classy-tooltip-vars;
 
     &:after {
@@ -149,8 +149,8 @@
 }
 
 
-.@{classy-tooltip-namespace}-nw,
-.@{classy-tooltip-namespace}-sw {
+.@{classy-tooltip-namespace}--nw,
+.@{classy-tooltip-namespace}--sw {
     #classy-tooltip-vars;
 
     &:after {
@@ -159,8 +159,8 @@
 }
 
 
-.@{classy-tooltip-namespace}-n,
-.@{classy-tooltip-namespace}-s {
+.@{classy-tooltip-namespace}--n,
+.@{classy-tooltip-namespace}--s {
     &:after {
         -webkit-transform: translateX(50%);
             -ms-transform: translateX(50%);
@@ -170,7 +170,7 @@
 
 
 // Tooltip to the left of the object.
-.@{classy-tooltip-namespace}-w {
+.@{classy-tooltip-namespace}--w {
     #classy-tooltip-vars;
 
     &:after {
@@ -190,7 +190,7 @@
 
 
 // Tooltip to the right of the object.
-.@{classy-tooltip-namespace}-e {
+.@{classy-tooltip-namespace}--e {
     #classy-tooltip-vars;
 
     &:after {
@@ -208,8 +208,8 @@
 }
 
 
-.@{classy-tooltip-namespace}-e,
-.@{classy-tooltip-namespace}-w {
+.@{classy-tooltip-namespace}--e,
+.@{classy-tooltip-namespace}--w {
     &:after {
         -webkit-transform: translateY(50%);
             -ms-transform: translateY(50%);
